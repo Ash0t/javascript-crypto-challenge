@@ -7,10 +7,10 @@ describe('signing module', () => {
     signatory = await Signature()
     verifyingKey = signatory.verifyingKey
   })
-  it('provides a verifying key', () => {
+  xit('provides a verifying key', () => {
     expect(verifyingKey).toBeDefined()
   })
-  it('returns a signed message', async () => {
+  xit('returns a signed message', async () => {
     const msg = nacl.randombytes_buf(1024)
     const signedMsg = await signatory.sign(msg)
     expect(nacl.crypto_sign_open(signedMsg, verifyingKey)).toEqual(msg)

@@ -18,11 +18,11 @@ describe('PasswordHashVerifier', () => {
         hashedPw = nacl.crypto_pwhash_str(pw, opslimit, memlimit)
     })
 
-    xit('verifies a correct password', async() => {
+    it('verifies a correct password', async() => {
         expect(verifier.verify(hashedPw, pw)).toBeTruthy()
     })
 
-    xit('rejects an incorrect password', async() => {
+    it('rejects an incorrect password', async() => {
         expect(verifier.verify(hashedPw, nacl.randombytes_buf(16))).toBeFalsy()
     })
 })

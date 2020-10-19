@@ -24,9 +24,9 @@ module.exports = async (peer) => {
        },
        generateSharedKeys: async (peer) => {
         peer2 = peer;      
-        const server_keys = nacl.crypto_kx_server_session_keys(kp.publicKey, kp.privateKey, peer2.publicKey);
-        rx = server_keys.sharedRx;
-        tx = server_keys.sharedTx;
+        const sk = nacl.crypto_kx_server_session_keys(kp.publicKey, kp.privateKey, peer2.publicKey);
+        rx = sk.sharedRx;
+        tx = sk.sharedTx;
         decryptor = await Decryptor(rx);
         encryptor = await Encryptor(tx);
         }
